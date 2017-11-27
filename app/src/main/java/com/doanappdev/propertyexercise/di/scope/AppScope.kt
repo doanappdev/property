@@ -1,4 +1,4 @@
-package com.doanappdev.propertyexercise.di
+package com.doanappdev.propertyexercise.di.scope
 
 import javax.inject.Qualifier
 
