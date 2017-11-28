@@ -1,7 +1,7 @@
 package com.doanappdev.propertyexercise.repository
 
 import android.util.Log
-import com.doanappdev.propertyexercise.Model.SearchResponse
+import com.doanappdev.propertyexercise.model.SearchResponse
 import com.doanappdev.propertyexercise.api.SearchApi
 import io.reactivex.Observable
 

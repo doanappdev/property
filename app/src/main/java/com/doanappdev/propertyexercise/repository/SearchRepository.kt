@@ -1,6 +1,6 @@
 package com.doanappdev.propertyexercise.repository
 
-import com.doanappdev.propertyexercise.Model.SearchResponse
+import com.doanappdev.propertyexercise.model.SearchResponse
 import io.reactivex.Observable
 
 

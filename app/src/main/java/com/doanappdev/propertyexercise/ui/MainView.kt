@@ -1,8 +1,9 @@
 package com.doanappdev.propertyexercise.ui
 
-import com.doanappdev.propertyexercise.Model.Listings
-import com.doanappdev.propertyexercise.base.ui.BaseMvpView
+import com.doanappdev.propertyexercise.model.Listings
+import com.doanappdev.propertyexercise.base.ui.BaseView
 
-interface MainView : BaseMvpView {
+interface MainView : BaseView {
     fun setAdapter(listings: List<Listings>)
+    fun onSearchError()
 }

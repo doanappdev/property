@@ -1,9 +1,8 @@
-package com.doanappdev.propertyexercise.base
+package com.doanappdev.propertyexercise.base.ui
 
-import com.doanappdev.propertyexercise.base.ui.BaseMvpView
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BasePresenter<T : BaseMvpView> {
+abstract class BasePresenter<T : BaseView> {
 
     protected val disposables = CompositeDisposable()
     protected var view: T? = null

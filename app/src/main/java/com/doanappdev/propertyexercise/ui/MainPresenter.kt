@@ -1,9 +1,8 @@
 package com.doanappdev.propertyexercise.ui
 
 import android.util.Log
-import com.doanappdev.propertyexercise.Model.SearchResponse
-import com.doanappdev.propertyexercise.api.SearchApi
-import com.doanappdev.propertyexercise.base.BasePresenter
+import com.doanappdev.propertyexercise.model.SearchResponse
+import com.doanappdev.propertyexercise.base.ui.BasePresenter
 import com.doanappdev.propertyexercise.repository.SearchRepository
 
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -31,15 +30,15 @@ class MainPresenter @Inject constructor(val respository: SearchRepository) : Bas
     private fun onSearchSuccess(response: SearchResponse) {
         val listingsResults = response.listingResults
         val listings = listingsResults.listings
-        for (lr in listings) {
-            Log.i(TAG, "Listing: adId = ${lr.adId}")
-            Log.i(TAG, "Listing: agencyColour = ${lr.agencyColour}")
-        }
+//        for (lr in listings) {
+//            Log.i(TAG, "Listing: adId = ${lr.adId}")
+//            Log.i(TAG, "Listing: agencyColour = ${lr.agencyColour}")
+//        }
         view?.setAdapter(listings)
     }
 
     private fun onSearchError() {
-        Log.e(TAG, "Search Api Error!")
-        //view?.onSearchError()
+        //Log.e(TAG, "Search Api Error!")
+        view?.onSearchError()
     }
 }

@@ -32,7 +32,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    api "org.jetbrains.anko:anko:$anko_version"
+
     api 'com.android.support:appcompat-v7:26.1.0'
+    api 'com.android.support:recyclerview-v7:26.1.0'
     api 'com.android.support.constraint:constraint-layout:1.0.2'
 
     api 'com.google.code.gson:gson:2.8.0'
