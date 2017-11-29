@@ -1,8 +1,5 @@
 package com.doanappdev.propertyexercise.model
 
-import com.doanappdev.propertyexercise.PREMIUM_VIEW
-import com.doanappdev.propertyexercise.STANDARD_VIEW
-import com.doanappdev.propertyexercise.base.adapter.ViewType
 import com.google.gson.annotations.SerializedName
 
 data class SearchResponse(
@@ -11,25 +8,17 @@ data class SearchResponse(
 
 
 data class ListingResults(
-        @SerializedName("Listings") val listings: List<Listings>
+        @SerializedName("Listings") val listings: List<Listing>
 )
 
-data class Listings(
+data class Listing(
         @SerializedName("AdId") val adId: Int,
         @SerializedName("AgencyColour") val agencyColour: String,
         @SerializedName("AgencyContactPhoto") val agencyContactPhoto: String? = null,
         @SerializedName("AgencyID") val agencyId: Int,
         @SerializedName("AgencyLogoUrl") val agencyLogoUrl: String? = null,
+        @SerializedName("ImageUrls") val imageUrls: List<String>,
         @SerializedName("IsElite") val isElite: Int
 )
-
-//    : ViewType {
-//    override fun getViewType(): Int {
-//        if (isElite) {
-//            return PREMIUM_VIEW
-//        }
-//        return STANDARD_VIEW
-//    }
-//}
 
 

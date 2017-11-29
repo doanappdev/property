@@ -22,7 +22,7 @@ class ListingsAdapter(val items: List<ViewType>) : RecyclerView.Adapter<Recycler
     init {
         //delegateAdapters.put(LOADING, LoadingDelegateAdapter())
         delegateAdapters.put(STANDARD_VIEW, StandardDelegateAdapter())
-        //delegateAdapters.put(PREMIUM_VIEW, PremiumDelegateAdapter())
+        delegateAdapters.put(PREMIUM_VIEW, PremiumDelegateAdapter())
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
