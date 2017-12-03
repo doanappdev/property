@@ -2,7 +2,9 @@
 interview exercise
 
 This app implements clean architecure using MVP design pattern.
+
 Kotlin for the language
+
 Delegate pattern for recycler view
 And example of using ViewModel lifecycle components to handle device rotation
 
