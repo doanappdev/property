@@ -44,41 +44,12 @@ class MainPresenter @Inject constructor(val respository: SearchRepository) : Bas
     private fun createListingViewTypes(listings: List<Listing>): List<ViewType> {
         val viewTypes = ArrayList<ViewType>()
         for (listing in listings) {
-            Log.i(TAG, "Listing: adId = ${listing.adId}")
-            Log.i(TAG, "Listing: agencyColour = ${listing.agencyColour}")
-            Log.i(TAG, "Listing: isElite = ${listing.isElite}")
-            Log.i(TAG, "Listing: urlStrings size = ${listing.imageUrls.size}")
-
-            var viewType: ViewType
-            if (listing.isElite == 1) {
-                viewType = PremiumItem(
-                        listing.adId,
-                        listing.agencyColour,
-                        getValidString(listing.agencyContactPhoto),
-                        listing.agencyId,
-                        getValidString(listing.agencyLogoUrl),
-                        listing.imageUrls,
-                        listing.isElite
-                )
-            } else {
-                viewType = StandardItem(
-                        listing.adId,
-                        listing.agencyColour,
-                        getValidString(listing.agencyContactPhoto),
-                        listing.agencyId,
-                        getValidString(listing.agencyLogoUrl),
-                        listing.imageUrls,
-                        listing.isElite
-                )
+            when(listing.isElite == 1) {
+                true -> viewTypes.add(PremiumItem(listing))
+                false -> viewTypes.add(StandardItem(listing))
             }
-            viewTypes.add(viewType)
         }
 
         return viewTypes
-    }
-
-    private fun getValidString(arg: String?) = when(arg.isNullOrEmpty()) {
-        true -> ""
-        false -> arg
     }
 }

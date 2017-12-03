@@ -1,6 +1,7 @@
 package com.doanappdev.propertyexercise.ui.list
 
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
@@ -27,28 +28,21 @@ class StandardDelegateAdapter : ViewTypeDelegateAdapter {
 
     inner class StandardViewHolder(parent: ViewGroup): RecyclerView.ViewHolder(parent.inflate(R.layout.item_standard_view)) {
         fun bind(item: StandardItem) = with(itemView) {
-            setPropertyImage(photo, item.urlStrings[0])
-            rowOne.text = item.agencyId.toString()
-            rowTwo.text = item.agencyColour
-            rowThree.text = item.agencyContactPhoto
+            setPropertyImage(photo, item.retinaDisplayThumbUrl)
+            rowOne.text = item.displayPrice
+            rowTwo.text = item.getRowTwoString()
+            rowThree.text = item.displayableAddress
+
+            agencyBtn.setBackgroundColor(Color.parseColor(item.agencyColour))
         }
 
-        private fun setPropertyImage(imgView: ImageView, url: String) {
+        private fun setPropertyImage(imgView: ImageView, url: String?) {
             Glide.with(imgView.context)
                     .load(url)
-                    .asBitmap().centerCrop()
-                    .into(object : BitmapImageViewTarget(imgView) {
-                        override fun setResource(resource: Bitmap) {
-                            val bitmapDrawable = RoundedBitmapDrawableFactory.create(
-                                    itemView.resources,
-                                    resource)
-                            //bitmapDrawable.isCircular = true
-                            imgView.setImageDrawable(bitmapDrawable)
-                        }
-                    })
+                    .placeholder(R.drawable.ic_sync_black_24px)
+                    .into(imgView)
 
         }
-
     }
 
 }

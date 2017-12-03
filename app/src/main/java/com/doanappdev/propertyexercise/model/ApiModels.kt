@@ -12,11 +12,16 @@ data class ListingResults(
 )
 
 data class Listing(
-        @SerializedName("AdId") val adId: Int,
-        @SerializedName("AgencyColour") val agencyColour: String,
-        @SerializedName("AgencyContactPhoto") val agencyContactPhoto: String? = null,
-        @SerializedName("AgencyID") val agencyId: Int,
-        @SerializedName("AgencyLogoUrl") val agencyLogoUrl: String? = null,
+        @SerializedName("AgencyColour") val agencyColour: String? = "",
+        @SerializedName("AgencyLogoUrl") val agencyLogoUrl: String? = "",
+        @SerializedName("Bathrooms") val bathRooms: Int,
+        @SerializedName("Bedrooms") val bedRooms: Int,
+        @SerializedName("Carspaces") val carSpaces: Int,
+        @SerializedName("DisplayPrice") val displayPrice: String,
+        @SerializedName("DisplayableAddress") val displayableAddress: String,
+        @SerializedName("TruncatedDescription") val truncatedDesc: String? = "",
+        @SerializedName("RetinaDisplayThumbUrl") val retinaDisplayThumbUrl: String? = "",
+        @SerializedName("SecondRetinaDisplayThumbUrl") val secondThumbUrl: String? = "",
         @SerializedName("ImageUrls") val imageUrls: List<String>,
         @SerializedName("IsElite") val isElite: Int
 )

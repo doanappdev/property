@@ -43,6 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/rowOne"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="1 bed, 1, bath, 1 car"
@@ -59,10 +61,11 @@
     />
 
     <Button
-        android:id="@+id/adButton"
+        android:id="@+id/agencyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rowThree"
     />
 
@@ -70,7 +73,7 @@
         android:id="@+id/starImage"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:background="@color/colorAccent"
+        android:src="@drawable/ic_star_border_black_24px"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
     />

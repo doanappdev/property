@@ -1,13 +1,10 @@
 package com.doanappdev.propertyexercise.ui.list
 
-import android.graphics.Bitmap
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.doanappdev.propertyexercise.R
 import com.doanappdev.propertyexercise.base.adapter.ViewType
 import com.doanappdev.propertyexercise.base.adapter.ViewTypeDelegateAdapter
@@ -27,27 +24,20 @@ class PremiumDelegateAdapter : ViewTypeDelegateAdapter {
 
     inner class PremiumViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.item_premium_view)) {
         fun bind(item: PremiumItem) = with(itemView) {
-            setPropertyImage(leftPhoto, item.urlStrings[0])
-            setPropertyImage(rightPhoto, item.urlStrings[1])
-            rowOne.text = item.agencyId.toString()
-            rowTwo.text = item.agencyColour
-            rowThree.text = item.agencyContactPhoto
+            setPropertyImage(leftPhoto, item.retinaDisplayThumbUrl)
+            setPropertyImage(rightPhoto, item.secondThumbUrl)
+            rowOne.text = item.displayPrice
+            rowTwo.text = item.getRowTwoString()
+            rowThree.text = item.displayableAddress
+
+            agencyBtn.setBackgroundColor(Color.parseColor(item.agencyColour))
         }
 
-        private fun setPropertyImage(imgView: ImageView, url: String) {
+        private fun setPropertyImage(imgView: ImageView, url: String?) {
             Glide.with(imgView.context)
                     .load(url)
-                    .asBitmap().centerCrop()
-                    .into(object : BitmapImageViewTarget(imgView) {
-                        override fun setResource(resource: Bitmap) {
-                            val bitmapDrawable = RoundedBitmapDrawableFactory.create(
-                                    itemView.resources,
-                                    resource)
-                            //bitmapDrawable.isCircular = true
-                            imgView.setImageDrawable(bitmapDrawable)
-                        }
-                    })
-
+                    .placeholder(R.drawable.ic_sync_black_24px)
+                    .into(imgView)
         }
 
     }

@@ -6,4 +6,5 @@ import com.doanappdev.propertyexercise.base.ui.BaseView
 interface MainView : BaseView {
     fun setAdapter(viewTypes: List<ViewType>)
     fun onSearchError()
+    fun displayProgressBar(isDisplay: Boolean)
 }

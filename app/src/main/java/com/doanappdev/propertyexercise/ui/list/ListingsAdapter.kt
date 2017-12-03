@@ -10,7 +10,7 @@ import com.doanappdev.propertyexercise.base.adapter.LoadingDelegateAdapter
 import com.doanappdev.propertyexercise.base.adapter.ViewType
 import com.doanappdev.propertyexercise.base.adapter.ViewTypeDelegateAdapter
 
-class ListingsAdapter(val items: List<ViewType>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ListingsAdapter(var items: List<ViewType>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var viewTypes: ArrayList<ViewType> = ArrayList()
     private var delegateAdapters = SparseArrayCompat<ViewTypeDelegateAdapter>()
@@ -36,4 +36,8 @@ class ListingsAdapter(val items: List<ViewType>) : RecyclerView.Adapter<Recycler
 
     override fun getItemCount(): Int = items.size
     override fun getItemViewType(position: Int) = items[position].getViewType()
+
+    fun setViewTypes(items: List<ViewType>) {
+        this.items = items
+    }
 }
